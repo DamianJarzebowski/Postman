@@ -6,6 +6,11 @@
 	},
 	"item": [
 		{
+			"name": "New Folder",
+			"item": [],
+			"id": "9f46d5e5-8943-4964-afdd-b97e1b96a59f"
+		},
+		{
 			"name": "Create Household",
 			"event": [
 				{
@@ -50,7 +55,7 @@
 					}
 				}
 			],
-			"_postman_id": "0e70990a-5061-47e5-b11d-42f82fc392d7",
+			"id": "0e70990a-5061-47e5-b11d-42f82fc392d7",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -129,7 +134,7 @@
 					}
 				}
 			],
-			"_postman_id": "aa6743b9-052a-432c-aa38-9b07e8408300",
+			"id": "aa6743b9-052a-432c-aa38-9b07e8408300",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -197,7 +202,7 @@
 					}
 				}
 			],
-			"_postman_id": "6b54b957-f517-4140-bef8-fbec88a69e12",
+			"id": "6b54b957-f517-4140-bef8-fbec88a69e12",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -217,10 +222,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {}
-					}
+					"raw": ""
 				},
 				"url": "{{host}}/wishlists/{{wishlistId}}/books/{{bookId}}"
 			},
@@ -240,7 +242,7 @@
 					}
 				}
 			],
-			"_postman_id": "ad62a2a7-6aa0-4239-8c5f-ca1191553c73",
+			"id": "ad62a2a7-6aa0-4239-8c5f-ca1191553c73",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -287,7 +289,7 @@
 					}
 				}
 			],
-			"_postman_id": "6fa9aba3-e73f-452a-b5b6-a31c28469b9f",
+			"id": "6fa9aba3-e73f-452a-b5b6-a31c28469b9f",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},

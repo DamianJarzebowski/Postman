@@ -404,8 +404,37 @@
 			"id": "74c5df34-9eb1-43d7-b09a-280db30c5082"
 		},
 		{
-			"name": "New Folder",
-			"item": [],
+			"name": "Create and use file data",
+			"item": [
+				{
+					"name": "Create Book",
+					"id": "087556a9-b6f2-49eb-a267-10a822be7232",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "G-Token",
+								"value": "ROM831ESV",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"{{title}}\",\r\n    \"author\": \"{{author}}\",\r\n    \"isbn\": \"{{isbn}}\",\r\n    \"publicationDate\": \"{{publicationDate}}\"\r\n}"
+						},
+						"url": "{{host}}/books"
+					},
+					"response": []
+				}
+			],
 			"id": "bf5383a8-e9ea-4e2a-a9b1-7f2dd738835f"
 		},
 		{

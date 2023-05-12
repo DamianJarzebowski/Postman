@@ -116,8 +116,174 @@
 		},
 		{
 			"name": "Simple The same Under",
-			"item": [],
+			"item": [
+				{
+					"name": "Create Household",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "83d3ccf3-851d-49d3-b710-1fae43d4a7b7",
+								"exec": [
+									"pm.globals.set(\"householdId\", pm.response.json().id);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d6c860e8-5782-4f36-aa9c-e43530cae165",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "a71e76c9-52ba-4624-9803-e6ee5390299b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "G-Token",
+								"value": "ROM831ESV",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Taylor Household\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/households"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Second User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2ab53182-a948-4106-9945-0fd502f782c5",
+								"exec": [
+									"pm.globals.set(\"secondWishlistId\", pm.response.json().wishlistId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "520e2557-1118-44d8-bc49-a0cb29172db4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "G-Token",
+								"value": "ROM831ESV",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mardot@gmail.com\",\r\n    \"firstName\": \"Kasia\",\r\n    \"lasteName\": \"Kowalska\",\r\n    \"householdId\": {{householdId}}\r\n}"
+						},
+						"url": "{{host}}/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Book to Second User",
+					"id": "ef130c8b-202c-43c8-bef0-c02ca1c10c15",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "G-Token",
+								"value": "ROM831ESV",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "{{host}}/wishlists/{{secondWishlistId}}/books/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Household Books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "213c8995-31e3-4696-bdc5-f0dcf49ce966",
+								"exec": [
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "9a8768ac-3ec2-4f98-a81f-d56e8e2e72fa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "G-Token",
+								"value": "ROM831ESV",
+								"type": "text"
+							}
+						],
+						"url": "{{host}}/households/{{householdId}}/wishlistBooks"
+					},
+					"response": []
+				}
+			],
 			"id": "f32312ee-fae6-4066-ab38-d63c8893e07f"
+		},
+		{
+			"name": "New Folder",
+			"item": [],
+			"id": "74c5df34-9eb1-43d7-b09a-280db30c5082"
 		},
 		{
 			"name": "Create Household",

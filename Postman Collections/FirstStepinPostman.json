@@ -282,8 +282,131 @@
 		},
 		{
 			"name": "Simple Tests",
-			"item": [],
+			"item": [
+				{
+					"name": "Get UUID + simple tests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6509cdd7-6861-4af5-ae16-07aec0a8a5a6",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Should verify response - uuid\", () => {\r",
+									"    const resData = pm.response.json();\r",
+									"    console.log(resData.uuid);\r",
+									"    pm.expect(resData.uuid.length).to.be.greaterThan(0);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "59e9573c-29a4-4a78-91ac-f97df0ffd981",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": "{{sparta}}/uuid"
+					},
+					"response": []
+				},
+				{
+					"name": "Test check things and every",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "949c3613-9097-45fa-a5d5-af3cad5b218a",
+								"exec": [
+									"pm.test(\"Return 1 thing\", function()  {\r",
+									"    const resData = pm.response.json();\r",
+									"    pm.expect(resData.length).to.eql(3);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"All thing should have a thing\", function() {\r",
+									"    const data = pm.response.json();\r",
+									"    pm.expect(data.every(data => {\r",
+									"        return data.origin !== undefined;\r",
+									"    })).to.be.true;\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "aae80bf0-0e9c-49a3-bd0d-4f5726881c39",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "https://httpbin.org/stream/3"
+					},
+					"response": []
+				},
+				{
+					"name": "check date",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "07a423c8-dfd0-4284-bb38-604de744259a",
+								"exec": [
+									"const moment = require('moment');\r",
+									"\r",
+									"pm.test(\"Create date is equal to today\", function() {\r",
+									"    const data = _.result(pm, 'response.json');\r",
+									"\r",
+									"    pm.expect(moment(data.createdAt).format('MM/DD/YYYY'))\r",
+									"    .to.eql(moment().format('MM/DD/YYYY'))\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "17ad1db8-a4f0-49a3-8173-33f85672f14c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "74c5df34-9eb1-43d7-b09a-280db30c5082"
+		},
+		{
+			"name": "New Folder",
+			"item": [],
+			"id": "bf5383a8-e9ea-4e2a-a9b1-7f2dd738835f"
 		},
 		{
 			"name": "Create Household",

@@ -7,8 +7,117 @@
 	"item": [
 		{
 			"name": "User Update",
-			"item": [],
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfaef1b0-b91d-4ee3-9457-eeb6cd84410c",
+								"exec": [
+									"pm.globals.set(\"userId\", pm.response.json().id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "ca6a1363-628f-4c01-a934-7a269ebb9599",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "G-Token",
+								"value": "ROM831ESV",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"tayloremailpro@gmail.com\",\r\n    \"firstName\": \"Damian\",\r\n    \"lastName\": \"Jarzebowski\"\r\n}"
+						},
+						"url": "{{host}}/users"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dd6c66ba-50cd-42ea-bd61-f29e31e87fce",
+								"exec": [
+									"const user = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Updated email\", function() {\r",
+									"    pm.expect(user.email).to.eql(\"updatedemail@gmail.com\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"First name unchamged\", function() {\r",
+									"    pm.expect(user.firstName).to.eql(\"Damian\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Last Name unchanged\", function() {\r",
+									"    pm.expect(user.lastName).to.eql(\"Jarzebowski\");\r",
+									"})\r",
+									"\r",
+									"pm.globals.unset(\"userId\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "a87db393-6b61-461b-84b9-6390dbdf6b0b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "admin",
+								"username": "admin"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "G-Token",
+								"value": "ROM831ESV",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"updatedemail@gmail.com\"\r\n}"
+						},
+						"url": "{{host}}/users/{{userId}}"
+					},
+					"response": []
+				}
+			],
 			"id": "9f46d5e5-8943-4964-afdd-b97e1b96a59f"
+		},
+		{
+			"name": "New Folder",
+			"item": [],
+			"id": "f32312ee-fae6-4066-ab38-d63c8893e07f"
 		},
 		{
 			"name": "Create Household",

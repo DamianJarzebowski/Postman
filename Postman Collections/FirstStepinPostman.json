@@ -405,13 +405,7 @@
 		},
 		{
 			"name": "New Folder",
-			"item": [
-				{
-					"name": "New Folder",
-					"item": [],
-					"id": "b1075c2a-ae82-4489-a5fa-701bea108f78"
-				}
-			],
+			"item": [],
 			"id": "bf5383a8-e9ea-4e2a-a9b1-7f2dd738835f"
 		},
 		{
